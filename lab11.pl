@@ -1,16 +1,10 @@
-% ============================================================
-%  The "Name Game"  -  ARTI 401 Lab Activity
-%  Run:   swipl name_game.pl      then type:   ?- start.
-%  Note:  every answer you type must end with a full stop (.)
-%         e.g.  1.   or   a.
-% ============================================================
 
 :- dynamic letters/1.
 
-% The current set of letters is stored as a list.
+%  letters is stored as a list.
 letters([a,b,c]).
 
-% ---------- Entry point ----------
+%  Entry point 
 start :-
     retractall(letters(_)),
     assert(letters([a,b,c])),
@@ -19,7 +13,7 @@ start :-
     write('You will be given a set of English letters in which you will add, delete or move to create your name.'), nl,
     menu_loop.
 
-% ---------- Menu ----------
+%  Menu 
 menu_loop :-
     nl,
     write('Choose from the following:'), nl,
@@ -38,7 +32,7 @@ menu_loop :-
         menu_loop
     ).
 
-% ---------- Actions ----------
+%  Actions 
 % 1 - display
 act(1) :-
     letters(L),
